@@ -1,0 +1,17 @@
+<div class="toast-stack">
+  @for (toast of toasts.messages(); track toast.id) {
+    <article class="toast" [class.success]="toast.tone === 'success'" [class.danger]="toast.tone === 'danger'">
+      <div>
+        <h3>{{ toast.title }}</h3>
+        <p>{{ toast.body }}</p>
+      </div>
+
+      <div class="actions">
+        @if (toast.actionLabel === 'Undo') {
+          <button type="button" (click)="state.undoLastCompletion(); toasts.dismiss(toast.id)">Undo</button>
+        }
+        <button type="button" (click)="toasts.dismiss(toast.id)">Dismiss</button>
+      </div>
+    </article>
+  }
+</div>

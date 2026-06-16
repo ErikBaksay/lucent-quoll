@@ -1,0 +1,43 @@
+<div class="app-root">
+  <header class="top-strip">
+    <div class="brand-block">
+      <p class="eyebrow">Atelier Orion-7</p>
+      <h1>Lucent Quoll</h1>
+      <p class="subtitle">Shape work spatially. Keep intention visible. Let the board stay calm.</p>
+    </div>
+
+    <div class="strip-actions">
+      <label class="search-shell">
+        <span>Search</span>
+        <input
+          type="search"
+          [value]="state.preferences().searchQuery"
+          (input)="state.setSearchQuery(($any($event.target)).value)"
+          placeholder="Search tasks, groups, dates"
+        />
+      </label>
+
+      <a routerLink="/workspaces" routerLinkActive="active-pill" class="status-pill">{{ activeWorkspaceName() }}</a>
+      <a routerLink="/settings" routerLinkActive="active-pill" class="status-pill">Settings</a>
+    </div>
+  </header>
+
+  @if (state.error(); as error) {
+    <section class="error-banner" role="alert">
+      <p>{{ error }}</p>
+    </section>
+  }
+
+  <main class="workspace">
+    <section class="pane rail-pane">
+      <app-sidebar />
+    </section>
+
+    <section class="pane stage-pane">
+      <router-outlet />
+    </section>
+  </main>
+
+  <app-toast-stack />
+  <app-dialog-layer />
+</div>

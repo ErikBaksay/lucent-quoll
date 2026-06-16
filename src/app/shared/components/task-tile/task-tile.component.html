@@ -1,0 +1,44 @@
+<article
+  class="tile"
+  [class.selected]="selected"
+  [class.dragging]="dragging"
+  [class.today]="taskView.state === 'today'"
+  [class.upcoming]="taskView.state === 'upcoming'"
+  [class.overdue]="taskView.state === 'overdue'"
+  [style.left.px]="dragPosition.x"
+  [style.top.px]="dragPosition.y"
+  [style.width.px]="tileWidth"
+  [style.height.px]="tileHeight"
+  (click)="select.emit()"
+>
+  <button type="button" class="tile-handle" (mousedown)="dragStart.emit($event); $event.stopPropagation()">
+    <span></span>
+    <span></span>
+  </button>
+
+  <button type="button" class="complete-button" (click)="$event.stopPropagation(); toggleComplete.emit()">
+    {{ taskView.task.status === 'completed' ? 'Undo' : 'Done' }}
+  </button>
+
+  <div class="tile-copy">
+    <app-rich-text-editor
+      [content]="taskView.task.richTextDoc"
+      [disabled]="true"
+      [preview]="true"
+      [toolbarVisible]="false"
+      [compact]="true"
+    />
+  </div>
+
+  <footer class="meta">
+    <span>{{ taskView.task.dueDate || 'No date' }}</span>
+    <span>{{ taskView.group?.name || 'Unsorted' }}</span>
+    @if (stateLabels[taskView.state]) {
+      <span class="state-label">{{ stateLabels[taskView.state] }}</span>
+    }
+  </footer>
+
+  <button type="button" class="resize-handle" (mousedown)="resizeStart.emit($event); $event.stopPropagation()">
+    <span></span>
+  </button>
+</article>

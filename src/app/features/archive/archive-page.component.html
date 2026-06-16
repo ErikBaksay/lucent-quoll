@@ -1,0 +1,36 @@
+<section class="archive-page">
+  <header class="page-head">
+    <div>
+      <p class="eyebrow">History</p>
+      <h2>Archive</h2>
+      <p>Completed work settles here in calm chronological groups instead of vanishing.</p>
+    </div>
+  </header>
+
+  @if (buckets().length) {
+    <div class="bucket-list">
+      @for (bucket of buckets(); track bucket.label) {
+        <section class="bucket">
+          <h3>{{ bucket.label }}</h3>
+          <div class="archive-grid">
+            @for (item of bucket.tasks; track item.task.id) {
+              <article class="archive-card">
+                <p>{{ item.previewText }}</p>
+                <footer>
+                  <span>{{ item.task.completedAt?.slice(0, 10) }}</span>
+                  <span>{{ item.group?.name || 'Unsorted' }}</span>
+                </footer>
+              </article>
+            }
+          </div>
+        </section>
+      }
+    </div>
+  } @else {
+    <div class="empty">
+      <p class="eyebrow">Archive</p>
+      <h3>No completed tasks yet</h3>
+      <p>As tasks are completed on the board, their history will collect here.</p>
+    </div>
+  }
+</section>

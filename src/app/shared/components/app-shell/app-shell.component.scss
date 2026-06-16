@@ -1,0 +1,168 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+
+.app-root {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 0.92rem;
+  padding: clamp(0.82rem, 1.8vw, 1.35rem);
+  color: var(--ink-shell);
+}
+
+.top-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.88rem 1rem;
+  border: 1px solid var(--line-shell-soft);
+  border-radius: var(--radius-shell);
+  background: var(--surface-shell-1);
+  box-shadow: var(--shadow-shell-1);
+  backdrop-filter: blur(18px);
+}
+
+.brand-block {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-faint);
+  font-size: 0.61rem;
+  font-weight: 710;
+}
+
+h1 {
+  margin: 0.24rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  line-height: 0.96;
+  font-weight: 520;
+  letter-spacing: 0.01em;
+  color: var(--ink-on-rail);
+}
+
+.subtitle {
+  margin: 0.32rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+.strip-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.search-shell,
+.status-pill {
+  min-height: 2.5rem;
+  border: 1px solid var(--line-shell-soft);
+  border-radius: 1rem;
+  background: var(--surface-shell-2);
+  color: var(--ink-on-rail);
+  text-decoration: none;
+}
+
+.search-shell {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.38rem 0.8rem;
+  min-width: min(24rem, 48vw);
+
+  span {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+  }
+
+  input {
+    border: 0;
+    background: transparent;
+    color: var(--ink-on-rail);
+    outline: none;
+  }
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.82rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.active-pill {
+  border-color: var(--line-shell-strong);
+}
+
+.error-banner {
+  border: 1px solid color-mix(in oklab, #cf775f 44%, var(--line-shell-soft));
+  background: color-mix(in oklab, #cf775f 16%, var(--surface-shell-1));
+  border-radius: 1rem;
+  padding: 0.68rem 0.82rem;
+
+  p {
+    margin: 0;
+    color: color-mix(in oklab, #ffeadd 45%, #2a1813);
+  }
+}
+
+.workspace {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(280px, 320px) 1fr;
+  gap: 0.86rem;
+}
+
+.pane {
+  min-height: 0;
+  border-radius: var(--radius-shell);
+  overflow: hidden;
+}
+
+.rail-pane {
+  border: 1px solid var(--line-shell-soft);
+  background: var(--surface-shell-1);
+  box-shadow: var(--shadow-shell-1);
+}
+
+.stage-pane {
+  border: 1px solid var(--line-stage-soft);
+  background: var(--surface-stage-0);
+  box-shadow: var(--shadow-stage-1);
+  padding: clamp(0.38rem, 0.86vw, 0.7rem);
+}
+
+@media (max-width: 1040px) {
+  .top-strip,
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .top-strip {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-shell {
+    min-width: 100%;
+  }
+
+  .workspace {
+    display: flex;
+    flex-direction: column;
+  }
+}

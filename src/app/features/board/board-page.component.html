@@ -1,0 +1,11 @@
+<section class="board-page">
+  <div class="board-column" [class.board-column--full]="!inspectorVisible()">
+    <app-task-board [tasks]="boardTasks()" />
+  </div>
+
+  @if (inspectorVisible()) {
+    <div class="inspector-column">
+      <app-task-inspector />
+    </div>
+  }
+</section>

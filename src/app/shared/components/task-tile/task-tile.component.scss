@@ -1,0 +1,120 @@
+:host {
+  display: contents;
+}
+
+.tile {
+  position: absolute;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.7rem;
+  padding: 0.72rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line-stage-soft);
+  background: color-mix(in oklab, var(--surface-stage-0) 96%, white 4%);
+  box-shadow: var(--shadow-stage-1);
+  color: var(--ink-stage-1);
+  overflow: hidden;
+  user-select: none;
+}
+
+.tile.selected {
+  z-index: 2;
+  border-color: color-mix(in oklab, var(--oxide-strong) 45%, var(--line-stage-strong));
+  box-shadow: var(--shadow-stage-2);
+}
+
+.tile.dragging {
+  z-index: 4;
+  cursor: grabbing;
+  box-shadow:
+    0 22px 48px -24px color-mix(in oklab, #090706 40%, transparent),
+    0 0 0 1px color-mix(in oklab, var(--oxide-soft) 34%, transparent);
+}
+
+.tile.today {
+  background: color-mix(in oklab, var(--warning-soft) 32%, var(--surface-stage-0));
+}
+
+.tile.upcoming {
+  background: color-mix(in oklab, var(--accent-soft) 28%, var(--surface-stage-0));
+}
+
+.tile.overdue {
+  border-color: color-mix(in oklab, var(--rose-deep) 44%, var(--line-stage-strong));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--rose-deep) 18%, transparent),
+    var(--shadow-stage-1);
+}
+
+.tile-handle {
+  display: flex;
+  justify-content: center;
+  gap: 0.22rem;
+  cursor: grab;
+  padding: 0.2rem 0;
+  border: 0;
+  background: transparent;
+
+  span {
+    width: 1.4rem;
+    height: 2px;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--line-stage-strong) 65%, transparent);
+  }
+}
+
+.complete-button,
+.resize-handle {
+  position: absolute;
+  border: 1px solid var(--line-stage-soft);
+  background: color-mix(in oklab, var(--surface-stage-0) 90%, white 10%);
+  color: var(--ink-stage-2);
+  z-index: 1;
+}
+
+.complete-button {
+  top: 0.7rem;
+  right: 0.7rem;
+  border-radius: 999px;
+  padding: 0.22rem 0.48rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tile-copy {
+  min-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  color: var(--ink-stage-faint);
+  font-size: 0.74rem;
+}
+
+.state-label {
+  color: var(--accent);
+}
+
+.resize-handle {
+  right: 0.65rem;
+  bottom: 0.65rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.4rem;
+  padding: 0;
+  display: grid;
+  place-items: center;
+
+  span {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+  }
+}

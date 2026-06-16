@@ -1,0 +1,99 @@
+.inspector,
+.empty {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.inspector {
+  min-height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--line-stage-soft);
+  border-radius: 1.2rem;
+  background: color-mix(in oklab, var(--surface-stage-0) 95%, white 5%);
+}
+
+.head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.head-copy {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-stage-faint);
+  font-weight: 700;
+}
+
+h3 {
+  margin: 0.28rem 0 0;
+  font-family: var(--font-display);
+  color: var(--ink-stage-1);
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0;
+  color: var(--ink-stage-faint);
+}
+
+.dismiss {
+  border: 1px solid var(--line-stage-soft);
+  border-radius: 0.88rem;
+  background: transparent;
+  color: var(--ink-stage-2);
+  padding: 0.45rem 0.7rem;
+  white-space: nowrap;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+
+  span {
+    color: var(--ink-stage-faint);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+input,
+select {
+  min-height: 2.8rem;
+  border: 1px solid var(--line-stage-soft);
+  border-radius: 0.95rem;
+  background: var(--surface-stage-1);
+  color: var(--ink-stage-1);
+  padding: 0.7rem 0.8rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border-radius: 0.92rem;
+  border: 1px solid var(--line-stage-soft);
+  padding: 0.56rem 0.8rem;
+}
+
+.primary {
+  background: linear-gradient(145deg, var(--oxide-warm), var(--oxide-strong));
+  color: #171210;
+}
+
+.danger {
+  background: transparent;
+  color: var(--rose-deep);
+}

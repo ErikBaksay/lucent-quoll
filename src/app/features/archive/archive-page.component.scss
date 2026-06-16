@@ -1,0 +1,75 @@
+.archive-page,
+.bucket-list,
+.bucket,
+.archive-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.archive-page {
+  min-height: 100%;
+  padding: 0.5rem;
+}
+
+.page-head,
+.bucket,
+.empty {
+  padding: 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--line-stage-soft);
+  background: color-mix(in oklab, var(--surface-stage-0) 95%, white 5%);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-stage-faint);
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  color: var(--ink-stage-1);
+}
+
+.page-head p:last-child,
+.empty p:last-child {
+  color: var(--ink-stage-faint);
+}
+
+.archive-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.archive-card {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line-stage-soft);
+  background: var(--surface-stage-0);
+
+  p {
+    margin: 0;
+    color: var(--ink-stage-1);
+    line-height: 1.5;
+  }
+
+  footer {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    color: var(--ink-stage-faint);
+    font-size: 0.75rem;
+  }
+}
+
+.empty {
+  min-height: 20rem;
+  place-items: center;
+  text-align: center;
+}

@@ -1,0 +1,83 @@
+.page,
+.workspace-grid,
+.workspace-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.page {
+  min-height: 100%;
+  padding: 0.5rem;
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid var(--line-stage-soft);
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, var(--surface-stage-0) 94%, white 6%);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-stage-faint);
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  margin: 0.32rem 0 0;
+  font-family: var(--font-display);
+  color: var(--ink-stage-1);
+}
+
+.page-head p:last-child,
+.workspace-card p:last-child {
+  color: var(--ink-stage-faint);
+}
+
+.workspace-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.workspace-card {
+  padding: 1rem;
+  border: 1px solid var(--line-stage-soft);
+  border-radius: 1.15rem;
+  background: var(--surface-stage-0);
+  box-shadow: var(--shadow-stage-1);
+}
+
+.workspace-card.active {
+  border-color: color-mix(in oklab, var(--oxide-strong) 45%, var(--line-stage-strong));
+  background: var(--accent-soft);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 1px solid var(--line-stage-soft);
+  border-radius: 0.9rem;
+  background: transparent;
+  color: var(--ink-stage-2);
+  padding: 0.5rem 0.72rem;
+}
+
+.primary {
+  background: linear-gradient(145deg, var(--oxide-warm), var(--oxide-strong));
+  color: #171210;
+}
+
+.danger {
+  color: var(--rose-deep);
+}

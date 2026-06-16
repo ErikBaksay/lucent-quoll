@@ -1,0 +1,41 @@
+<section class="inspector">
+  @if (task(); as task) {
+    <header class="head">
+      <div class="head-copy">
+        <p class="eyebrow">Selected tile</p>
+        <h3>Task detail</h3>
+        <p>Tune the writing, due date, and placement context without leaving the board.</p>
+      </div>
+
+      <button type="button" class="dismiss" (click)="dismiss()">Close</button>
+    </header>
+
+    <app-rich-text-editor [content]="task.richTextDoc" (contentChange)="state.updateTask(task.id, { richTextDoc: $event })" />
+
+    <label class="field">
+      <span>Due date</span>
+      <input type="date" [ngModel]="task.dueDate" (ngModelChange)="updateDueDate($event)" />
+    </label>
+
+    <label class="field">
+      <span>Group</span>
+      <select [ngModel]="task.groupId ?? ''" (ngModelChange)="updateGroup($event)">
+        <option value="">Unsorted</option>
+        @for (group of state.groups(); track group.id) {
+          <option [value]="group.id">{{ group.name }}</option>
+        }
+      </select>
+    </label>
+
+    <div class="actions">
+      <button type="button" class="primary" (click)="state.completeTask(task.id)">{{ task.status === 'completed' ? 'Completed' : 'Complete task' }}</button>
+      <button type="button" class="danger" (click)="state.deleteTask(task.id)">Delete task</button>
+    </div>
+  } @else {
+    <div class="empty">
+      <p class="eyebrow">Inspector</p>
+      <h3>No task selected</h3>
+      <p>Select a tile to edit its content, metadata, and archive actions.</p>
+    </div>
+  }
+</section>

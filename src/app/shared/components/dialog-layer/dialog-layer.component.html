@@ -1,0 +1,14 @@
+@if (dialogs.activeDialog(); as dialog) {
+  <div class="backdrop" (click)="dialogs.close()">
+    <section class="dialog" (click)="$event.stopPropagation()">
+      <p class="eyebrow">Confirm action</p>
+      <h2>{{ dialog.title }}</h2>
+      <p class="body">{{ dialog.body }}</p>
+
+      <div class="actions">
+        <button type="button" class="ghost" (click)="dialogs.close()">{{ dialog.cancelLabel }}</button>
+        <button type="button" class="primary" (click)="dialog.onConfirm()">{{ dialog.confirmLabel }}</button>
+      </div>
+    </section>
+  </div>
+}

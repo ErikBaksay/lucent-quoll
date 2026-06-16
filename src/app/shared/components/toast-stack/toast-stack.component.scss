@@ -1,0 +1,57 @@
+.toast-stack {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 30;
+  display: grid;
+  gap: 0.65rem;
+  max-width: min(24rem, calc(100vw - 2rem));
+}
+
+.toast {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.88rem;
+  border-radius: 1.15rem;
+  border: 1px solid var(--line-shell-strong);
+  background: color-mix(in oklab, var(--surface-shell-1) 88%, #0d0a09 12%);
+  box-shadow: var(--shadow-shell-2);
+  color: var(--ink-on-rail);
+
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+
+  p {
+    color: var(--ink-faint);
+    font-size: 0.82rem;
+  }
+}
+
+.toast.success {
+  border-color: color-mix(in oklab, #779a67 48%, var(--line-shell-strong));
+}
+
+.toast.danger {
+  border-color: color-mix(in oklab, #cf775f 48%, var(--line-shell-strong));
+}
+
+.actions {
+  display: flex;
+  gap: 0.45rem;
+  justify-content: flex-end;
+}
+
+.actions button {
+  border: 1px solid var(--line-shell-soft);
+  border-radius: 0.82rem;
+  background: transparent;
+  color: inherit;
+  padding: 0.4rem 0.62rem;
+}

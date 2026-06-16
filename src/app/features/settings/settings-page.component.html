@@ -1,0 +1,39 @@
+<section class="page">
+  <header class="page-head">
+    <div>
+      <p class="eyebrow">Settings and trust</p>
+      <h2>Backups, restore, and local ownership</h2>
+      <p>Keep your board durable. Export the active workspace or the full snapshot whenever you want.</p>
+    </div>
+  </header>
+
+  <div class="card-grid">
+    <article class="card">
+      <p class="eyebrow">Export</p>
+      <h3>Versioned backups</h3>
+      <p>Save the active workspace or the complete local snapshot as JSON.</p>
+      <div class="actions">
+        <button type="button" class="primary" (click)="state.exportActiveWorkspace()">Export workspace</button>
+        <button type="button" (click)="state.exportAll()">Export all</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <p class="eyebrow">Import</p>
+      <h3>Restore from file</h3>
+      <p>Import a workspace backup as a copy, or restore the full snapshot if the file contains everything.</p>
+      <div class="actions">
+        <button type="button" class="primary" (click)="openFilePicker()">Import JSON</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <p class="eyebrow">Status</p>
+      <h3>Persistence</h3>
+      <p>Data is stored in IndexedDB on this browser and versioned as Lucent Quoll snapshot {{ 1 }}.</p>
+      <p>{{ state.isPersisting() ? 'Saving changes…' : 'All recent changes are stored locally.' }}</p>
+    </article>
+  </div>
+
+  <input #fileInput type="file" accept="application/json,.json" hidden (change)="onFileChange($event)" />
+</section>

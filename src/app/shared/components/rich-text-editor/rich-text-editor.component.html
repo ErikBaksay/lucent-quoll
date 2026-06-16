@@ -1,0 +1,21 @@
+<div class="editor-shell" [class.compact]="compact" [class.disabled]="disabled">
+  @if (toolbarVisible && !preview) {
+    <div class="toolbar" role="toolbar" aria-label="Rich text commands">
+      <button type="button" [class.active]="isActive('bold')" (click)="toggleBold()">Bold</button>
+      <button type="button" [class.active]="isActive('italic')" (click)="toggleItalic()">Italic</button>
+      <button type="button" [class.active]="isActive('underline')" (click)="toggleUnderline()">Underline</button>
+      <button type="button" [class.active]="isActive('heading', { level: 2 })" (click)="toggleHeading(2)">Head</button>
+      <button type="button" [class.active]="isActive('bulletList')" (click)="toggleBulletList()">Bullet</button>
+      <button type="button" [class.active]="isActive('highlight')" (click)="applyHighlight()">Highlight</button>
+      <button type="button" [class.active]="isActive('link')" (click)="addLink()">Link</button>
+
+      <div class="palette">
+        @for (color of palette; track color) {
+          <button type="button" class="color" [style.background]="color" (click)="applyColor(color)"></button>
+        }
+      </div>
+    </div>
+  }
+
+  <div #editorHost class="editor" [class.editor--preview]="preview"></div>
+</div>

@@ -1,0 +1,25 @@
+<section class="page">
+  <header class="page-head">
+    <div>
+      <p class="eyebrow">Workspace control</p>
+      <h2>Workspaces</h2>
+      <p>Shape separate boards for separate contexts without leaving the local-first model.</p>
+    </div>
+
+    <button type="button" class="primary" (click)="createWorkspace()">New workspace</button>
+  </header>
+
+  <div class="workspace-grid">
+    @for (workspace of state.workspaces(); track workspace.id) {
+      <article class="workspace-card" [class.active]="state.activeWorkspaceId() === workspace.id">
+        <p class="eyebrow">Local board</p>
+        <h3>{{ workspace.name }}</h3>
+        <div class="actions">
+          <button type="button" (click)="state.switchWorkspace(workspace.id)">Open</button>
+          <button type="button" (click)="renameWorkspace(workspace.id, workspace.name)">Rename</button>
+          <button type="button" class="danger" (click)="state.requestDeleteWorkspace(workspace.id)">Delete</button>
+        </div>
+      </article>
+    }
+  </div>
+</section>

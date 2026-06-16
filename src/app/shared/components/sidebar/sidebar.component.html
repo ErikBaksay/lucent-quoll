@@ -1,0 +1,53 @@
+<aside class="sidebar" [class.collapsed]="collapsed()">
+  <section class="section">
+    <div class="section-head">
+      <p>Navigator</p>
+      <button type="button" class="ghost" (click)="state.toggleSidebar()">{{ collapsed() ? 'Expand' : 'Collapse' }}</button>
+    </div>
+
+    <nav class="nav-list">
+      <a routerLink="/board" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="state.setFilter('all'); state.selectGroup(null)">
+        <span>All tasks</span>
+        <strong>{{ state.counts().all }}</strong>
+      </a>
+      <a routerLink="/board" routerLinkActive="active" (click)="state.setFilter('today'); state.selectGroup(null)">
+        <span>Today</span>
+        <strong>{{ state.counts().today }}</strong>
+      </a>
+      <a routerLink="/board" routerLinkActive="active" (click)="state.setFilter('upcoming'); state.selectGroup(null)">
+        <span>Upcoming</span>
+        <strong>{{ state.counts().upcoming }}</strong>
+      </a>
+      <a routerLink="/board" routerLinkActive="active" (click)="state.setFilter('overdue'); state.selectGroup(null)">
+        <span>Overdue</span>
+        <strong>{{ state.counts().overdue }}</strong>
+      </a>
+      <a routerLink="/archive" routerLinkActive="active" (click)="state.setFilter('archive'); state.selectGroup(null)">
+        <span>Archive</span>
+        <strong>{{ state.counts().archive }}</strong>
+      </a>
+    </nav>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p>Groups</p>
+      <button type="button" class="ghost" (click)="createGroup()">New</button>
+    </div>
+
+    <div class="group-list">
+      @for (group of state.groups(); track group.id) {
+        <button type="button" class="group-item" [class.active]="state.preferences().selectedGroupId === group.id" (click)="state.setFilter('all'); state.selectGroup(state.preferences().selectedGroupId === group.id ? null : group.id)">
+          <span class="swatch" [style.background]="group.accent"></span>
+          <span>{{ group.name }}</span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="section workspace-card">
+    <p class="workspace-label">Workspace</p>
+    <a routerLink="/workspaces" class="workspace-link">{{ state.activeWorkspace()?.name ?? 'No workspace selected' }}</a>
+    <p class="workspace-copy">Local-first board. Versioned backups. Calm daily flow.</p>
+  </section>
+</aside>

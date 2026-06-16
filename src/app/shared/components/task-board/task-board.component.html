@@ -1,0 +1,35 @@
+<section class="board-shell">
+  <header class="board-head">
+    <button type="button" class="primary" (click)="createTask()">New task</button>
+    <div class="board-copy">
+      <p class="eyebrow">Board workspace</p>
+      <p>Snap-grid placement with persistent local layout and an editorial reading rhythm.</p>
+    </div>
+  </header>
+
+  @if (tasks.length) {
+    <div #boardHost class="board" [style.minHeight.px]="boardHeight()">
+      @for (task of tasks; track task.task.id) {
+        <app-task-tile
+          [taskView]="task"
+          [selected]="state.selectedTask()?.id === task.task.id"
+          [dragPosition]="dragPosition(task)"
+          [tileWidth]="cardWidth(task)"
+          [tileHeight]="cardHeight(task)"
+          [dragging]="isDragging(task.task.id)"
+          (select)="selectTask(task.task.id)"
+          (dragStart)="onDragStart(task, $event)"
+          (toggleComplete)="state.completeTask(task.task.id)"
+          (resizeStart)="onResizeStart(task, $event)"
+        />
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <p class="eyebrow">Quiet board</p>
+      <h3>No tasks in this view</h3>
+      <p>Create a new tile or adjust your filters to bring the board back into focus.</p>
+      <button type="button" class="primary" (click)="createTask()">Create task</button>
+    </div>
+  }
+</section>

@@ -1,0 +1,105 @@
+.sidebar {
+  min-height: 100%;
+  display: grid;
+  gap: 0.95rem;
+  padding: 1rem;
+  background: var(--surface-rail);
+}
+
+.section {
+  border: 1px solid color-mix(in oklab, var(--line-shell-soft) 74%, transparent);
+  border-radius: 1.2rem;
+  background: color-mix(in oklab, var(--surface-shell-2) 75%, #0c0909);
+  padding: 0.9rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.72rem;
+
+  p {
+    margin: 0;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    font-weight: 700;
+  }
+}
+
+.ghost {
+  border: 1px solid var(--line-shell-soft);
+  border-radius: 0.85rem;
+  background: transparent;
+  color: var(--ink-on-rail);
+  padding: 0.4rem 0.65rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.nav-list,
+.group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.nav-list a,
+.group-item,
+.workspace-link {
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--ink-on-rail);
+  text-decoration: none;
+  padding: 0.72rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.nav-list a.active,
+.group-item.active {
+  border-color: color-mix(in oklab, var(--oxide-strong) 56%, var(--line-shell-strong));
+  background: color-mix(in oklab, var(--surface-shell-1) 84%, #170f0d);
+}
+
+.group-item {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.swatch {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+}
+
+.workspace-card {
+  align-self: end;
+}
+
+.workspace-label {
+  margin: 0 0 0.3rem;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-faint);
+  font-weight: 700;
+}
+
+.workspace-link {
+  margin-bottom: 0.55rem;
+}
+
+.workspace-copy {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
