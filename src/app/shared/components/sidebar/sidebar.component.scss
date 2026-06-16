@@ -103,3 +103,45 @@
   font-size: 0.77rem;
   line-height: 1.5;
 }
+
+@media (max-width: 1040px) {
+  .sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .workspace-card {
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 720px) {
+  .sidebar {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.8rem;
+  }
+
+  .section {
+    padding: 0.8rem;
+  }
+
+  .sidebar.collapsed {
+    gap: 0;
+  }
+
+  .sidebar.collapsed .section:not(:first-child) {
+    display: none;
+  }
+
+  .nav-list,
+  .group-list {
+    gap: 0.36rem;
+  }
+
+  .nav-list a,
+  .group-item,
+  .workspace-link {
+    padding: 0.78rem 0.82rem;
+  }
+}

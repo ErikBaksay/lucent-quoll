@@ -61,3 +61,17 @@ button {
   background: linear-gradient(145deg, var(--oxide-warm), var(--oxide-strong));
   color: #171210;
 }
+
+@media (max-width: 720px) {
+  .page {
+    padding: 0.25rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}

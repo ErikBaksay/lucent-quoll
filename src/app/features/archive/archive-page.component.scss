@@ -73,3 +73,17 @@ h3 {
   place-items: center;
   text-align: center;
 }
+
+@media (max-width: 720px) {
+  .archive-page {
+    padding: 0.25rem;
+  }
+
+  .archive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-card {
+    padding: 0.82rem;
+  }
+}

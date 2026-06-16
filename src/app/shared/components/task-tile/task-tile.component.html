@@ -11,7 +11,7 @@
   [style.height.px]="tileHeight"
   (click)="select.emit()"
 >
-  <button type="button" class="tile-handle" (mousedown)="dragStart.emit($event); $event.stopPropagation()">
+  <button type="button" class="tile-handle" (pointerdown)="dragStart.emit($event); $event.stopPropagation()">
     <span></span>
     <span></span>
   </button>
@@ -38,7 +38,7 @@
     }
   </footer>
 
-  <button type="button" class="resize-handle" (mousedown)="resizeStart.emit($event); $event.stopPropagation()">
+  <button type="button" class="resize-handle" (pointerdown)="resizeStart.emit($event); $event.stopPropagation()">
     <span></span>
   </button>
 </article>

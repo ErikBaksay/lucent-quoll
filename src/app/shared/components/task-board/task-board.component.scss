@@ -63,6 +63,7 @@
     linear-gradient(180deg, rgba(255, 248, 239, 0.82), rgba(245, 235, 221, 0.92)),
     radial-gradient(circle at 20% 18%, rgba(210, 140, 95, 0.08), transparent 36%);
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .empty-state {
@@ -91,5 +92,43 @@
   p:last-of-type {
     color: var(--ink-stage-faint);
     max-width: 28rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .board-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .board-copy {
+    text-align: left;
+  }
+
+  .primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .board-shell {
+    gap: 0.7rem;
+  }
+
+  .board-head {
+    padding: 0.8rem;
+  }
+
+  .board {
+    min-height: 24rem;
+    border-radius: 1.1rem;
+  }
+
+  .empty-state {
+    min-height: 18rem;
+
+    h3 {
+      font-size: 1.45rem;
+    }
   }
 }

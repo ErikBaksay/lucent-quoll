@@ -86,6 +86,7 @@ body {
     linear-gradient(164deg, #131010 0%, #0b0909 58%, #16110f 100%);
   background-attachment: fixed;
   position: relative;
+  overflow-x: hidden;
 }
 
 body::before {

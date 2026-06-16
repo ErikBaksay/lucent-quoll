@@ -20,8 +20,8 @@ export class TaskTileComponent {
 
   @Output() readonly select = new EventEmitter<void>();
   @Output() readonly toggleComplete = new EventEmitter<void>();
-  @Output() readonly dragStart = new EventEmitter<MouseEvent>();
-  @Output() readonly resizeStart = new EventEmitter<MouseEvent>();
+  @Output() readonly dragStart = new EventEmitter<PointerEvent>();
+  @Output() readonly resizeStart = new EventEmitter<PointerEvent>();
 
   protected readonly stateLabels = {
     normal: '',

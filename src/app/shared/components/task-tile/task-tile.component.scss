@@ -15,6 +15,7 @@
   color: var(--ink-stage-1);
   overflow: hidden;
   user-select: none;
+  touch-action: manipulation;
 }
 
 .tile.selected {
@@ -51,6 +52,7 @@
   justify-content: center;
   gap: 0.22rem;
   cursor: grab;
+  touch-action: none;
   padding: 0.2rem 0;
   border: 0;
   background: transparent;
@@ -110,11 +112,29 @@
   padding: 0;
   display: grid;
   place-items: center;
+  touch-action: none;
 
   span {
     width: 0.55rem;
     height: 0.55rem;
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
+  }
+}
+
+@media (max-width: 720px) {
+  .tile {
+    gap: 0.6rem;
+    padding: 0.68rem;
+  }
+
+  .complete-button {
+    top: 0.6rem;
+    right: 0.6rem;
+  }
+
+  .meta {
+    gap: 0.42rem;
+    font-size: 0.7rem;
   }
 }

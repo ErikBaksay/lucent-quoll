@@ -147,14 +147,19 @@ h1 {
 }
 
 @media (max-width: 1040px) {
-  .top-strip,
-  .workspace {
-    grid-template-columns: 1fr;
-  }
-
   .top-strip {
     flex-direction: column;
     align-items: stretch;
+    padding: 0.92rem;
+  }
+
+  .strip-actions {
+    justify-content: stretch;
+  }
+
+  .search-shell,
+  .status-pill {
+    width: 100%;
   }
 
   .search-shell {
@@ -162,7 +167,41 @@ h1 {
   }
 
   .workspace {
-    display: flex;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-root {
+    gap: 0.75rem;
+    padding:
+      max(0.75rem, env(safe-area-inset-top))
+      0.75rem
+      max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .eyebrow {
+    font-size: 0.57rem;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .subtitle {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .strip-actions {
     flex-direction: column;
+  }
+
+  .status-pill {
+    justify-content: center;
+  }
+
+  .stage-pane {
+    padding: 0.3rem;
   }
 }

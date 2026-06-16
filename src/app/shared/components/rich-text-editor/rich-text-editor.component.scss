@@ -108,3 +108,17 @@
 ::ng-deep .ProseMirror ul {
   padding-left: 1.2rem;
 }
+
+@media (max-width: 720px) {
+  .toolbar {
+    padding: 0.42rem;
+  }
+
+  .toolbar button {
+    min-height: 2.1rem;
+  }
+
+  .editor {
+    padding: 0.75rem;
+  }
+}
